@@ -12,15 +12,15 @@ import SwiftUI
 
 struct WelcomeView: View {
     
-    @State private var highScore: String = "0"
+    @State private var highScore: Int = 0
     
     //@FocusState private var lowerBoundFieldIsFocused : Bool
-    @State private var lower_bound: String = ""
-    @State private var upper_bound: String = ""
+    @State private var lower_bound: Int = 0
+    @State private var upper_bound: Int = 100
     
     @State private var selectedOperator : Operator = .addition
     
-    @State private var selectedTime: String = "20"
+    @State private var selectedTime: Int = 20
     
     @State private var lower_bounds : [Int] = [0, 10, 50, 100, 500, 1000]
     @State private var upper_bounds : [Int] = [10, 50, 100, 500, 1000, 100000]
@@ -31,8 +31,6 @@ struct WelcomeView: View {
     var body: some View {
         
         VStack{
-            
-            
             
             VStack(alignment: .center) {
                 Text("           Welcome to\n") +
@@ -60,16 +58,12 @@ struct WelcomeView: View {
             }.fixedSize(horizontal: false, vertical: true).padding()
             
             
-            
-            
-            //Text("Bounds for terms: ").font(.subheadline).padding()
-            
             VStack(alignment: .trailing){
                 HStack {
                     Label("Lower Bound", systemImage: "arrow.down")
                     Picker("Lower Bound", selection: $lower_bound) {
                         ForEach(lower_bounds, id: \.self) {
-                            value in Text("\(value)").tag("\(value)")
+                            value in Text("\(value)").tag(value)
                         }
                     }
                 }
@@ -77,7 +71,7 @@ struct WelcomeView: View {
                     Label("Upper Bound", systemImage: "arrow.up")
                     Picker("Upper Bound", selection: $upper_bound) {
                         ForEach(upper_bounds, id: \.self) {
-                            value in Text("\(value)").tag("\(value)")
+                            value in Text("\(value)").tag(value)
                         }
                     }
                 }
@@ -86,7 +80,7 @@ struct WelcomeView: View {
                     Label("Time in seconds", systemImage: "clock")
                     Picker("select time", selection: $selectedTime) {
                         ForEach(time_limits, id: \.self) {
-                            value in Text("\(value)").tag("\(value)") }
+                            value in Text("\(value)").tag(value) }
                     }
                 }
                 
@@ -103,9 +97,12 @@ struct WelcomeView: View {
             ZStack {
                 RoundedRectangle(cornerRadius: 4)
                     .fill(Color.green)
+                NavigationLink(destination: GameView(selectedOperator: $selectedOperator, lower_bound: $lower_bound, upper_bound: $upper_bound, time_limit: $selectedTime )){
+                    Text("Play!").foregroundColor(.black).font(.headline)
+                }
                 
-                Text("Play!").font(.headline)
             }.fixedSize(horizontal: false, vertical: true).padding()
+                
             
             HStack {
                 Image(systemName: "plus").resizable()
@@ -118,8 +115,8 @@ struct WelcomeView: View {
                     .frame(width: 32.0, height: 32.0).foregroundColor(.purple).padding()
             }.padding()
             
-            Button(action: {}) {
-                Text("About")
+            NavigationLink(destination: AboutView()){
+                Text("About").foregroundColor(.blue)
             }
         }
     }
