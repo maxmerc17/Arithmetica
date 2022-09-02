@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct GameView: View {
-    @State private var equation : Equation = Equation()
+    @State private var equation : Equation = Equation(lower_bound: 0, upper_bound: 2, operation: .addition)
     @State private var answer : String = ""
     @State private var score: Int = 0
     
@@ -17,11 +17,6 @@ struct GameView: View {
     @Binding var upper_bound: Int
     @Binding var time_limit : Int
     
-    @State var timeRemaining : Int = 20
-    
-    let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
-    
-    
       enum FocusField: Hashable {
         case field
       }
@@ -29,13 +24,8 @@ struct GameView: View {
     
     var body: some View {
         VStack {
-            Text("\(timeRemaining)")
-                .onReceive(timer) { _ in
-                    if timeRemaining > 0 {
-                        timeRemaining -= 1
-                    }
-                }
-            Spacer()
+            
+            TimerView(time_limit: $time_limit, score: $score)
             
             ZStack {
                 RoundedRectangle(cornerRadius: 4)
@@ -44,7 +34,7 @@ struct GameView: View {
                     Text("\(equation.term1) \(selectedOperator.symbol) \(equation.term2)  = ")
                         
                     TextField("Answer", text: $answer, onCommit: {
-                        if Int(answer) == (equation.evaluate(operation: selectedOperator)){
+                        if Int(answer) == (equation.evaluate()){
                             equation.generateNewTerms()
                             answer = ""
                             score+=1
@@ -58,13 +48,13 @@ struct GameView: View {
                     .fill(Color.red)*/
                 Label("Score: \(score)", systemImage: "minus.forwardslash.plus")
             }.padding()
-        }.onAppear() { timeRemaining = time_limit }
+        }.onAppear() {
+            equation = Equation(lower_bound: lower_bound, upper_bound: upper_bound, operation: selectedOperator)
+        }
     }
 }
 
 struct ContentView_Previews: PreviewProvider {
-    
-    let time_limit : Int = 20
     
     static var previews: some View {
         GameView(selectedOperator: .constant(Operator.addition), lower_bound: .constant(0), upper_bound: .constant(100), time_limit: .constant(20) )
