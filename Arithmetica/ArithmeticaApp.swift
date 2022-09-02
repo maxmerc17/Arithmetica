@@ -11,7 +11,7 @@ import SwiftUI
 struct ArithmeticaApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            WelcomeView()
         }
     }
 }

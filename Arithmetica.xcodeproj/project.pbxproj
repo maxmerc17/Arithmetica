@@ -8,12 +8,16 @@
 
 /* Begin PBXBuildFile section */
 		850F57B028C1261700289469 /* ArithmeticaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 850F57AF28C1261700289469 /* ArithmeticaApp.swift */; };
-		850F57B228C1261700289469 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 850F57B128C1261700289469 /* ContentView.swift */; };
+		850F57B228C1261700289469 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 850F57B128C1261700289469 /* Game.swift */; };
 		850F57B428C1261800289469 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 850F57B328C1261800289469 /* Assets.xcassets */; };
 		850F57B728C1261800289469 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 850F57B628C1261800289469 /* Preview Assets.xcassets */; };
 		850F57C128C1261800289469 /* ArithmeticaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 850F57C028C1261800289469 /* ArithmeticaTests.swift */; };
 		850F57CB28C1261800289469 /* ArithmeticaUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 850F57CA28C1261800289469 /* ArithmeticaUITests.swift */; };
 		850F57CD28C1261800289469 /* ArithmeticaUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 850F57CC28C1261800289469 /* ArithmeticaUITestsLaunchTests.swift */; };
+		850F57DB28C1294900289469 /* Equation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 850F57DA28C1294900289469 /* Equation.swift */; };
+		850F57DD28C1376200289469 /* Operator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 850F57DC28C1376200289469 /* Operator.swift */; };
+		850F57DF28C2426500289469 /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 850F57DE28C2426500289469 /* WelcomeView.swift */; };
+		850F57E128C24A1300289469 /* TrailingIconLabelStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 850F57E028C24A1300289469 /* TrailingIconLabelStyle.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,7 +40,7 @@
 /* Begin PBXFileReference section */
 		850F57AC28C1261700289469 /* Arithmetica.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Arithmetica.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		850F57AF28C1261700289469 /* ArithmeticaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArithmeticaApp.swift; sourceTree = "<group>"; };
-		850F57B128C1261700289469 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		850F57B128C1261700289469 /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
 		850F57B328C1261800289469 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		850F57B628C1261800289469 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		850F57BC28C1261800289469 /* ArithmeticaTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ArithmeticaTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -44,6 +48,10 @@
 		850F57C628C1261800289469 /* ArithmeticaUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ArithmeticaUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		850F57CA28C1261800289469 /* ArithmeticaUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArithmeticaUITests.swift; sourceTree = "<group>"; };
 		850F57CC28C1261800289469 /* ArithmeticaUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArithmeticaUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		850F57DA28C1294900289469 /* Equation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Equation.swift; sourceTree = "<group>"; };
+		850F57DC28C1376200289469 /* Operator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Operator.swift; sourceTree = "<group>"; };
+		850F57DE28C2426500289469 /* WelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
+		850F57E028C24A1300289469 /* TrailingIconLabelStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrailingIconLabelStyle.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,10 +102,13 @@
 		850F57AE28C1261700289469 /* Arithmetica */ = {
 			isa = PBXGroup;
 			children = (
+				850F57D928C1293500289469 /* Models */,
 				850F57AF28C1261700289469 /* ArithmeticaApp.swift */,
-				850F57B128C1261700289469 /* ContentView.swift */,
+				850F57B128C1261700289469 /* Game.swift */,
 				850F57B328C1261800289469 /* Assets.xcassets */,
 				850F57B528C1261800289469 /* Preview Content */,
+				850F57DE28C2426500289469 /* WelcomeView.swift */,
+				850F57E028C24A1300289469 /* TrailingIconLabelStyle.swift */,
 			);
 			path = Arithmetica;
 			sourceTree = "<group>";
@@ -125,6 +136,15 @@
 				850F57CC28C1261800289469 /* ArithmeticaUITestsLaunchTests.swift */,
 			);
 			path = ArithmeticaUITests;
+			sourceTree = "<group>";
+		};
+		850F57D928C1293500289469 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				850F57DA28C1294900289469 /* Equation.swift */,
+				850F57DC28C1376200289469 /* Operator.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -257,7 +277,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				850F57B228C1261700289469 /* ContentView.swift in Sources */,
+				850F57DF28C2426500289469 /* WelcomeView.swift in Sources */,
+				850F57E128C24A1300289469 /* TrailingIconLabelStyle.swift in Sources */,
+				850F57B228C1261700289469 /* Game.swift in Sources */,
+				850F57DD28C1376200289469 /* Operator.swift in Sources */,
+				850F57DB28C1294900289469 /* Equation.swift in Sources */,
 				850F57B028C1261700289469 /* ArithmeticaApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
