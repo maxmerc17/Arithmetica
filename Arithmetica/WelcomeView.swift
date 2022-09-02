@@ -100,14 +100,10 @@ struct WelcomeView: View {
                 }
             }
             
-        
-            
-            
-            
-            
             ZStack {
                 RoundedRectangle(cornerRadius: 4)
                     .fill(Color.green)
+                
                 Text("Play!").font(.headline)
             }.fixedSize(horizontal: false, vertical: true).padding()
             
@@ -121,25 +117,11 @@ struct WelcomeView: View {
                 Image(systemName: "divide").resizable()
                     .frame(width: 32.0, height: 32.0).foregroundColor(.purple).padding()
             }.padding()
-            /*
-            TextField(
-                    "Minimum value of a term",
-                    text: $lower_bound
-                )
-                .focused($lowerBoundFieldIsFocused)
-                .onSubmit {
-                    //validate(name: username)
-                }
-                .textInputAutocapitalization(.never)
-                .disableAutocorrection(true)
-                .border(.secondary)
-                .padding()
-
-                Text(lower_bound)
-                    .foregroundColor(lowerBoundFieldIsFocused ? .red : .blue)
-             */
             
-        }//.background(.cyan)
+            Button(action: {}) {
+                Text("About")
+            }
+        }
     }
 }
 
@@ -148,3 +130,22 @@ struct WelcomeView_Previews: PreviewProvider {
         WelcomeView()
     }
 }
+
+
+/*
+TextField(
+        "Minimum value of a term",
+        text: $lower_bound
+    )
+    .focused($lowerBoundFieldIsFocused)
+    .onSubmit {
+        //validate(name: username)
+    }
+    .textInputAutocapitalization(.never)
+    .disableAutocorrection(true)
+    .border(.secondary)
+    .padding()
+
+    Text(lower_bound)
+        .foregroundColor(lowerBoundFieldIsFocused ? .red : .blue)
+ */
