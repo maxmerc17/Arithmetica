@@ -20,8 +20,12 @@
 		850F57E128C24A1300289469 /* TrailingIconLabelStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 850F57E028C24A1300289469 /* TrailingIconLabelStyle.swift */; };
 		850F57E328C2764A00289469 /* AboutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 850F57E228C2764A00289469 /* AboutView.swift */; };
 		850F57E528C2768500289469 /* Template.swift in Sources */ = {isa = PBXBuildFile; fileRef = 850F57E428C2768500289469 /* Template.swift */; };
+		8534D02128C655D000283756 /* ImproperInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8534D02028C655D000283756 /* ImproperInputView.swift */; };
+		8534D02328C6566300283756 /* ImproperInputWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8534D02228C6566200283756 /* ImproperInputWrapper.swift */; };
 		85E1DB9928C297230078E02F /* TimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E1DB9828C297230078E02F /* TimerView.swift */; };
 		85E1DB9B28C2AC310078E02F /* ResultsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E1DB9A28C2AC310078E02F /* ResultsView.swift */; };
+		85E1DB9D28C2AEBD0078E02F /* ToDo in Resources */ = {isa = PBXBuildFile; fileRef = 85E1DB9C28C2AEBD0078E02F /* ToDo */; };
+		85E1DB9F28C6499C0078E02F /* GameParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E1DB9E28C6499C0078E02F /* GameParameters.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,8 +62,12 @@
 		850F57E028C24A1300289469 /* TrailingIconLabelStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrailingIconLabelStyle.swift; sourceTree = "<group>"; };
 		850F57E228C2764A00289469 /* AboutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutView.swift; sourceTree = "<group>"; };
 		850F57E428C2768500289469 /* Template.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Template.swift; sourceTree = "<group>"; };
+		8534D02028C655D000283756 /* ImproperInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImproperInputView.swift; sourceTree = "<group>"; };
+		8534D02228C6566200283756 /* ImproperInputWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImproperInputWrapper.swift; sourceTree = "<group>"; };
 		85E1DB9828C297230078E02F /* TimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerView.swift; sourceTree = "<group>"; };
 		85E1DB9A28C2AC310078E02F /* ResultsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsView.swift; sourceTree = "<group>"; };
+		85E1DB9C28C2AEBD0078E02F /* ToDo */ = {isa = PBXFileReference; lastKnownFileType = text; path = ToDo; sourceTree = "<group>"; };
+		85E1DB9E28C6499C0078E02F /* GameParameters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameParameters.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,6 +129,8 @@
 				850F57E428C2768500289469 /* Template.swift */,
 				85E1DB9828C297230078E02F /* TimerView.swift */,
 				85E1DB9A28C2AC310078E02F /* ResultsView.swift */,
+				85E1DB9C28C2AEBD0078E02F /* ToDo */,
+				8534D02028C655D000283756 /* ImproperInputView.swift */,
 			);
 			path = Arithmetica;
 			sourceTree = "<group>";
@@ -155,6 +165,8 @@
 			children = (
 				850F57DA28C1294900289469 /* Equation.swift */,
 				850F57DC28C1376200289469 /* Operator.swift */,
+				85E1DB9E28C6499C0078E02F /* GameParameters.swift */,
+				8534D02228C6566200283756 /* ImproperInputWrapper.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -265,6 +277,7 @@
 			files = (
 				850F57B728C1261800289469 /* Preview Assets.xcassets in Resources */,
 				850F57B428C1261800289469 /* Assets.xcassets in Resources */,
+				85E1DB9D28C2AEBD0078E02F /* ToDo in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -289,12 +302,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8534D02328C6566300283756 /* ImproperInputWrapper.swift in Sources */,
 				85E1DB9928C297230078E02F /* TimerView.swift in Sources */,
 				850F57DF28C2426500289469 /* WelcomeView.swift in Sources */,
 				850F57E328C2764A00289469 /* AboutView.swift in Sources */,
 				85E1DB9B28C2AC310078E02F /* ResultsView.swift in Sources */,
 				850F57E128C24A1300289469 /* TrailingIconLabelStyle.swift in Sources */,
 				850F57B228C1261700289469 /* GameView.swift in Sources */,
+				85E1DB9F28C6499C0078E02F /* GameParameters.swift in Sources */,
+				8534D02128C655D000283756 /* ImproperInputView.swift in Sources */,
 				850F57DD28C1376200289469 /* Operator.swift in Sources */,
 				850F57E528C2768500289469 /* Template.swift in Sources */,
 				850F57DB28C1294900289469 /* Equation.swift in Sources */,

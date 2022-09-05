@@ -15,8 +15,10 @@ struct WelcomeView: View {
     @State private var highScore: Int = 0
     
     //@FocusState private var lowerBoundFieldIsFocused : Bool
-    @State private var lower_bound: Int = 0
-    @State private var upper_bound: Int = 100
+    @State private var lower_bound : Int = 0
+    @State private var s_lower_bound : Int = 0
+    @State private var upper_bound : Int = 100
+    @State private var s_upper_bound : Int = 100
     
     @State private var selectedOperator : Operator = .addition
     
@@ -26,6 +28,9 @@ struct WelcomeView: View {
     @State private var upper_bounds : [Int] = [10, 50, 100, 500, 1000, 100000]
     @State private var time_limits : [Int] = [20, 40, 60, 120, 300, 600]
     
+    @State private var showingPopover = false
+    @Environment(\.dismiss) private var dismiss
+    @State private var improperInput : ImproperInputWrapper?
     
     
     var body: some View {
@@ -53,7 +58,7 @@ struct WelcomeView: View {
                     .fill(Color.yellow)
                 HStack {
                     Text("High Score: \(highScore)").font(.headline)
-                    Text("(\(selectedOperator.rawValue), \(selectedTime) second games)").font(.caption2)
+                    Text("(\(selectedOperator.rawValue), values between \(lower_bound) and \(upper_bound), \(selectedTime) second games)").font(.caption2)
                 }
             }.fixedSize(horizontal: false, vertical: true).padding()
             
@@ -61,17 +66,36 @@ struct WelcomeView: View {
             VStack(alignment: .trailing){
                 HStack {
                     Label("Lower Bound", systemImage: "arrow.down")
-                    Picker("Lower Bound", selection: $lower_bound) {
+                    Picker("Lower Bound", selection: $s_lower_bound) {
                         ForEach(lower_bounds, id: \.self) {
                             value in Text("\(value)").tag(value)
+                        }
+                    }.onChange(of: s_lower_bound) { s_lower_bound in
+                        print("Lower bound is \(s_lower_bound)")
+                        if s_lower_bound >= upper_bound {
+                            self.s_lower_bound = lower_bound
+                            improperInput = ImproperInputWrapper(title: "Lower bound cannot be greater than or equal to upper bound.", guidance: "Set a lower bound less than the upper bound.")
+                            showingPopover = true
+                            
+                        } else {
+                            self.lower_bound = s_lower_bound
                         }
                     }
                 }
                 HStack {
                     Label("Upper Bound", systemImage: "arrow.up")
-                    Picker("Upper Bound", selection: $upper_bound) {
+                    Picker("Upper Bound", selection: $s_upper_bound) {
                         ForEach(upper_bounds, id: \.self) {
                             value in Text("\(value)").tag(value)
+                        }
+                    }.onChange(of: s_upper_bound) { s_upper_bound in
+                        if lower_bound >= s_upper_bound {
+                            self.s_upper_bound = upper_bound
+                            improperInput = ImproperInputWrapper(title: "Upper bound cannot be less than or equal to lower bound.", guidance: "Set an upper bound greater than the lower bound.")
+                            showingPopover = true
+                            
+                        } else {
+                            self.upper_bound = s_upper_bound
                         }
                     }
                 }
@@ -118,6 +142,10 @@ struct WelcomeView: View {
             NavigationLink(destination: AboutView()){
                 Text("About").foregroundColor(.blue)
             }
+            .popover(item: $improperInput) { wrapper in
+                ImproperInputView(inputWrapper: wrapper)
+            }
+        
         }
     }
 }
