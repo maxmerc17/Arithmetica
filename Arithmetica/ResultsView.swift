@@ -8,12 +8,22 @@
 import SwiftUI
 
 struct ResultsView: View {
-    
+    @Binding var games : [Game]
     @Binding var game : Game
+    @Binding var isPresentingResults : Bool
+    let saveAction : () -> Void
     
     @Environment(\.dismiss) private var dismiss
     
-    func onClick() {
+    func onOkay() {
+        games.append(game)
+        game.score = 0
+        saveAction()
+        dismiss()
+    }
+    
+    func onDiscard(){
+        game.score = 0
         dismiss()
     }
     
@@ -30,9 +40,15 @@ struct ResultsView: View {
                     
                 }.padding()
                 
-                Button(action: onClick ) {
-                    Text("Okay").padding().background(.white).foregroundColor(.black)
-                }.cornerRadius(45)
+                HStack{
+                    Button(action: onOkay ) {
+                        Text("Okay").padding().background(.white).foregroundColor(.black)
+                    }.cornerRadius(45)
+                    Button(action: onDiscard ) {
+                        Text("Discard").padding().background(.white).foregroundColor(.black)
+                    }.cornerRadius(45)
+                }
+                
             }.padding()
         }
     }
@@ -40,6 +56,7 @@ struct ResultsView: View {
 
 struct ResultsView_Previews: PreviewProvider {
     static var previews: some View {
-        ResultsView(game: .constant(Game(lower_bound: 0, upper_bound: 100, time_limit: 20, operation: .addition, score: 0)))
+        let game : Game = Game(data: Game.Data())
+        ResultsView(games: .constant([game]), game: .constant(game), isPresentingResults: .constant(true), saveAction: {})
     }
 }

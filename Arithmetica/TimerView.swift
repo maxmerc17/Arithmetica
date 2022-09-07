@@ -10,6 +10,7 @@ import SwiftUI
 struct TimerView: View {
     @Binding var game : Game
     @Binding var isPresentingGame : Bool
+    @Binding var isPresentingResults : Bool
     
     @State var myArc : MyArc = MyArc()
     @State var timeRemaining : Int = 20
@@ -19,6 +20,8 @@ struct TimerView: View {
     
     var body: some View {
         ZStack {
+            
+            
             Circle()
                 .strokeBorder(lineWidth: 24)
                 .frame(width: 250, height: 250)
@@ -31,8 +34,15 @@ struct TimerView: View {
                     if timeRemaining > 0 {
                         timeRemaining -= 1
                         myArc.fin = (359*(Double(timeRemaining)/Double(game.time_limit)))
-                    } else {
-                        isPresentingGame = false
+                    } else if timeRemaining == 0 {
+                        if isPresentingGame == true {
+                            isPresentingGame = false
+                            isPresentingResults = true
+                            timer.upstream.connect().cancel()
+                        }else {
+                            timer.upstream.connect().cancel()
+                        }
+                        
                     }
                     if timeRemaining < 11 {
                         textColor = .red
@@ -43,13 +53,14 @@ struct TimerView: View {
             timeRemaining = game.time_limit
             myArc = MyArc()
         }
+        .navigationBarBackButtonHidden(true)
     }
 }
 
 struct TimerView_Previews: PreviewProvider {
     static var previews: some View {
         let game : Game = Game(data: Game.Data())
-        TimerView(game: .constant(game), isPresentingGame: .constant(true))
+        TimerView(game: .constant(game), isPresentingGame: .constant(true), isPresentingResults: .constant(false))
     }
 }
 

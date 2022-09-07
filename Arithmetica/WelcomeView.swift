@@ -12,11 +12,12 @@ import SwiftUI
 
 struct WelcomeView: View {
     @Binding var games : [Game]
+    let saveAction : () -> Void
     
     @State var game : Game = Game(data: Game.Data())
     @State var isPresentingGame : Bool = false
     @State private var showingPopover = false
-    @State var isShowingResults = false
+    @State var isPresentingResults = false
     
     @State private var highScore: Int = 0
     @State private var s_lower_bound : Int = 0
@@ -29,7 +30,7 @@ struct WelcomeView: View {
     @State private var improperInput : ImproperInputWrapper?
     
     @Environment(\.scenePhase) private var scenePhase
-    let saveAction : () -> Void
+    
     
     var body: some View {
         
@@ -118,7 +119,7 @@ struct WelcomeView: View {
             ZStack {
                 RoundedRectangle(cornerRadius: 4)
                     .fill(Color.green)
-                NavigationLink(destination: GameView(game: $game, isPresentingGame: $isPresentingGame), isActive: $isPresentingGame){
+                NavigationLink(destination: GameView(game: $game, isPresentingGame: $isPresentingGame, isPresentingResults: $isPresentingResults), isActive: $isPresentingGame){
                     Text("Play!").foregroundColor(.black).font(.headline)
                 }
                 
@@ -139,20 +140,18 @@ struct WelcomeView: View {
             NavigationLink(destination: AboutView()){
                 Text("About").foregroundColor(.blue)
             }
-            
             Button("Show results") {
-                isShowingResults = true // 2
+                isPresentingResults = true
             }
-            
             .popover(item: $improperInput) { wrapper in
                 ImproperInputView(inputWrapper: wrapper)
             }
-            .popup(isPresented: $isShowingResults) { // 3
-                ResultsView(game: $game)
+            .popup(isPresented: $isPresentingResults) {
+                ResultsView(games: $games, game: $game, isPresentingResults: $isPresentingResults, saveAction: saveAction)
             }
-            .onChange(of: scenePhase) { phase in
-                if phase == .inactive { }//saveAction() }
-            }
+            /*.onChange(of: games) { games in
+                saveAction()
+            }*/
         }
     }
 }

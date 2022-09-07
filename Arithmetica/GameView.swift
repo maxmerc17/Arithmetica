@@ -10,13 +10,24 @@ import SwiftUI
 struct GameView: View {
     @Binding var game : Game
     @Binding var isPresentingGame : Bool
+    @Binding var isPresentingResults : Bool
+    
+    func onClick() {
+        game.score = 0
+        isPresentingGame = false
+    }
+    
     var body: some View {
         VStack {
+            VStack(alignment: .leading) {
+                Button(action: onClick ) {
+                    Text("Quit").padding().background(.red).foregroundColor(.white)
+                }.cornerRadius(45)
+            }
             
-            TimerView(game: $game, isPresentingGame: $isPresentingGame)
+            TimerView(game: $game, isPresentingGame: $isPresentingGame, isPresentingResults: $isPresentingResults)
             EquationView(game: $game)
             
-            Spacer()
             ZStack {
                 Label("Score: \(game.score)", systemImage: "minus.forwardslash.plus")
             }.padding()
@@ -27,6 +38,6 @@ struct GameView: View {
 struct GameView_Previews: PreviewProvider {
     static var previews: some View {
         let game = Game(data: Game.Data())
-        GameView(game: .constant(game), isPresentingGame: .constant(true))
+        GameView(game: .constant(game), isPresentingGame: .constant(true), isPresentingResults: .constant(false))
     }
 }
