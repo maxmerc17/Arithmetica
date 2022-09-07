@@ -16,6 +16,7 @@ struct WelcomeView: View {
     @State var game : Game = Game(data: Game.Data())
     @State var isPresentingGame : Bool = false
     @State private var showingPopover = false
+    @State var isShowingResults = false
     
     @State private var highScore: Int = 0
     @State private var s_lower_bound : Int = 0
@@ -24,7 +25,6 @@ struct WelcomeView: View {
     @State private var upper_bounds : [Int] = [10, 50, 100, 500, 1000, 100000]
     @State private var time_limits : [Int] = [5, 20, 40, 60, 120, 300, 600]
     
-    //@FocusState private var lowerBoundFieldIsFocused : Bool
     @Environment(\.dismiss) private var dismiss
     @State private var improperInput : ImproperInputWrapper?
     
@@ -72,7 +72,7 @@ struct WelcomeView: View {
                         if s_lower_bound >= game.upper_bound {
                             self.s_lower_bound = game.lower_bound
                             improperInput = ImproperInputWrapper(title: "Lower bound cannot be greater than or equal to upper bound.", guidance: "Set a lower bound less than the upper bound.")
-                            showingPopover = true
+                            //showingPopover = true
                             
                         } else {
                             game.lower_bound = s_lower_bound
@@ -89,7 +89,7 @@ struct WelcomeView: View {
                         if game.lower_bound >= s_upper_bound {
                             self.s_upper_bound = game.upper_bound
                             improperInput = ImproperInputWrapper(title: "Upper bound cannot be less than or equal to lower bound.", guidance: "Set an upper bound greater than the lower bound.")
-                            showingPopover = true
+                            //showingPopover = true
                             
                         } else {
                             game.upper_bound = s_upper_bound
@@ -140,13 +140,19 @@ struct WelcomeView: View {
                 Text("About").foregroundColor(.blue)
             }
             
+            Button("Show results") {
+                isShowingResults = true // 2
+            }
+            
             .popover(item: $improperInput) { wrapper in
                 ImproperInputView(inputWrapper: wrapper)
+            }
+            .popup(isPresented: $isShowingResults) { // 3
+                ResultsView(game: $game)
             }
             .onChange(of: scenePhase) { phase in
                 if phase == .inactive { }//saveAction() }
             }
-        
         }
     }
 }

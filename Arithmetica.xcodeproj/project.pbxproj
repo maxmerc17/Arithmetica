@@ -24,6 +24,7 @@
 		8534D02328C6566300283756 /* ImproperInputWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8534D02228C6566200283756 /* ImproperInputWrapper.swift */; };
 		856AA75728C668580039CE2B /* GameStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 856AA75628C668580039CE2B /* GameStore.swift */; };
 		85C7562328C90371002C9E8B /* EquationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85C7562228C90371002C9E8B /* EquationView.swift */; };
+		85C7562528C90F4A002C9E8B /* popupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85C7562428C90F4A002C9E8B /* popupView.swift */; };
 		85E1DB9928C297230078E02F /* TimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E1DB9828C297230078E02F /* TimerView.swift */; };
 		85E1DB9B28C2AC310078E02F /* ResultsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E1DB9A28C2AC310078E02F /* ResultsView.swift */; };
 		85E1DB9D28C2AEBD0078E02F /* ToDo in Resources */ = {isa = PBXBuildFile; fileRef = 85E1DB9C28C2AEBD0078E02F /* ToDo */; };
@@ -68,6 +69,7 @@
 		8534D02228C6566200283756 /* ImproperInputWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImproperInputWrapper.swift; sourceTree = "<group>"; };
 		856AA75628C668580039CE2B /* GameStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameStore.swift; sourceTree = "<group>"; };
 		85C7562228C90371002C9E8B /* EquationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EquationView.swift; sourceTree = "<group>"; };
+		85C7562428C90F4A002C9E8B /* popupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = popupView.swift; sourceTree = "<group>"; };
 		85E1DB9828C297230078E02F /* TimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerView.swift; sourceTree = "<group>"; };
 		85E1DB9A28C2AC310078E02F /* ResultsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsView.swift; sourceTree = "<group>"; };
 		85E1DB9C28C2AEBD0078E02F /* ToDo */ = {isa = PBXFileReference; lastKnownFileType = text; path = ToDo; sourceTree = "<group>"; };
@@ -136,6 +138,7 @@
 				85E1DB9C28C2AEBD0078E02F /* ToDo */,
 				8534D02028C655D000283756 /* ImproperInputView.swift */,
 				85C7562228C90371002C9E8B /* EquationView.swift */,
+				85C7562428C90F4A002C9E8B /* popupView.swift */,
 			);
 			path = Arithmetica;
 			sourceTree = "<group>";
@@ -317,6 +320,7 @@
 				85E1DB9B28C2AC310078E02F /* ResultsView.swift in Sources */,
 				850F57E128C24A1300289469 /* TrailingIconLabelStyle.swift in Sources */,
 				850F57B228C1261700289469 /* GameView.swift in Sources */,
+				85C7562528C90F4A002C9E8B /* popupView.swift in Sources */,
 				85E1DB9F28C6499C0078E02F /* Game.swift in Sources */,
 				8534D02128C655D000283756 /* ImproperInputView.swift in Sources */,
 				850F57DD28C1376200289469 /* Operator.swift in Sources */,
