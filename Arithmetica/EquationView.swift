@@ -13,10 +13,7 @@ struct EquationView: View {
     @State private var equation : Equation = Equation(lower_bound: 0, upper_bound: 2, operation: .addition)
     @State private var answer : String = ""
     
-      enum FocusField: Hashable {
-        case field
-      }
-    @FocusState private var focusedField: FocusField?
+    @FocusState private var fieldInFocus: Bool
     
     var body: some View {
         ZStack {
@@ -31,7 +28,16 @@ struct EquationView: View {
                         answer = ""
                         game.score+=1
                     }
-                }).focused($focusedField, equals: .field).fixedSize()
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.75) {
+                      self.fieldInFocus = true
+                    }
+                }).focused($fieldInFocus)
+                .onAppear {
+                  DispatchQueue.main.asyncAfter(deadline: .now() + 0.75) {
+                    self.fieldInFocus = true
+                  }
+                }
+
             }
         }.fixedSize(horizontal: false, vertical: true).padding()
         .onAppear() {
