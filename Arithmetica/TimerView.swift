@@ -8,8 +8,16 @@
 import SwiftUI
 
 struct TimerView: View {
+    @Binding var games : [Game]
+    
     @Binding var time_limit : Int
     @Binding var score : Int
+    
+    // to be passed to results view
+    @State private var game : Game = Game(lower_bound: 0, upper_bound: 100, time_limit: 20, operation: .addition, score: 0)
+    @Binding var operation: Operator
+    @Binding var lower_bound : Int
+    @Binding var upper_bound : Int
     
     @State var timeRemaining : Int = 20
     @State var textColor : Color = .yellow
@@ -22,7 +30,7 @@ struct TimerView: View {
     
     var body: some View {
         ZStack {
-            NavigationLink(destination: ResultsView(score: $score), isActive: $navigate) { EmptyView() }
+            NavigationLink(destination: ResultsView(games: $games, game: $game), isActive: $navigate) { EmptyView() }
             
             Circle()
                 .strokeBorder(lineWidth: 24)
@@ -37,6 +45,8 @@ struct TimerView: View {
                         timeRemaining -= 1
                         myArc.fin = (359*(Double(timeRemaining)/Double(time_limit)))
                     } else {
+                        game = Game(lower_bound: lower_bound, upper_bound: upper_bound, time_limit: time_limit, operation: operation, score: score)
+                        //games.append(game)
                         navigate = true
                     }
                     if timeRemaining < 11 {
@@ -54,7 +64,7 @@ struct TimerView: View {
 
 struct TimerView_Previews: PreviewProvider {
     static var previews: some View {
-        TimerView(time_limit: .constant(5), score: .constant(5), timeRemaining: 10)
+        TimerView(games: .constant([Game(lower_bound: 0, upper_bound: 100, time_limit: 20, operation: .addition, score: 0)]), time_limit: .constant(5), score: .constant(0), operation: .constant(.addition), lower_bound: .constant(0), upper_bound: .constant(100))
     }
 }
 

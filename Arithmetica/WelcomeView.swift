@@ -11,6 +11,8 @@
 import SwiftUI
 
 struct WelcomeView: View {
+    @Binding var games : [Game]
+    @State var data = Game.Data()
     
     @State private var highScore: Int = 0
     
@@ -26,12 +28,20 @@ struct WelcomeView: View {
     
     @State private var lower_bounds : [Int] = [0, 10, 50, 100, 500, 1000]
     @State private var upper_bounds : [Int] = [10, 50, 100, 500, 1000, 100000]
-    @State private var time_limits : [Int] = [20, 40, 60, 120, 300, 600]
+    @State private var time_limits : [Int] = [5, 20, 40, 60, 120, 300, 600]
     
     @State private var showingPopover = false
     @Environment(\.dismiss) private var dismiss
     @State private var improperInput : ImproperInputWrapper?
     
+    @Environment(\.scenePhase) private var scenePhase
+    let saveAction : () -> Void
+    
+    func testFunc() {
+        //test
+        let newGame = Game(data: data)
+        games.append(newGame)
+    }
     
     var body: some View {
         
@@ -121,7 +131,7 @@ struct WelcomeView: View {
             ZStack {
                 RoundedRectangle(cornerRadius: 4)
                     .fill(Color.green)
-                NavigationLink(destination: GameView(selectedOperator: $selectedOperator, lower_bound: $lower_bound, upper_bound: $upper_bound, time_limit: $selectedTime )){
+                NavigationLink(destination: GameView(games: $games, selectedOperator: $selectedOperator, lower_bound: $lower_bound, upper_bound: $upper_bound, time_limit: $selectedTime)){
                     Text("Play!").foregroundColor(.black).font(.headline)
                 }
                 
@@ -142,8 +152,16 @@ struct WelcomeView: View {
             NavigationLink(destination: AboutView()){
                 Text("About").foregroundColor(.blue)
             }
+            
+            Button(action: testFunc){
+                Text("Test")
+            }
+            
             .popover(item: $improperInput) { wrapper in
                 ImproperInputView(inputWrapper: wrapper)
+            }
+            .onChange(of: scenePhase) { phase in
+                if phase == .inactive { }//saveAction() }
             }
         
         }
@@ -152,7 +170,7 @@ struct WelcomeView: View {
 
 struct WelcomeView_Previews: PreviewProvider {
     static var previews: some View {
-        WelcomeView()
+        WelcomeView(games: .constant([Game(lower_bound: 0, upper_bound: 100, time_limit: 20, operation: .addition, score: 0)]), saveAction: {})
     }
 }
 

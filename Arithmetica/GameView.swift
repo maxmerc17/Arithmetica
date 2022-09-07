@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct GameView: View {
+    @Binding var games : [Game]
+    
+    
     @State private var equation : Equation = Equation(lower_bound: 0, upper_bound: 2, operation: .addition)
     @State private var answer : String = ""
     @State private var score: Int = 0
@@ -25,7 +28,7 @@ struct GameView: View {
     var body: some View {
         VStack {
             
-            TimerView(time_limit: $time_limit, score: $score)
+            TimerView(games: $games, time_limit: $time_limit, score: $score, operation: $selectedOperator, lower_bound: $lower_bound, upper_bound: $upper_bound)
             
             ZStack {
                 RoundedRectangle(cornerRadius: 4)
@@ -56,7 +59,8 @@ struct GameView: View {
 
 struct ContentView_Previews: PreviewProvider {
     
+    
     static var previews: some View {
-        GameView(selectedOperator: .constant(Operator.addition), lower_bound: .constant(0), upper_bound: .constant(100), time_limit: .constant(20) )
+        GameView(games: .constant([Game(lower_bound: 0, upper_bound: 100, time_limit: 20, operation: .addition, score: 0)]),selectedOperator: .constant(Operator.addition), lower_bound: .constant(0), upper_bound: .constant(100), time_limit: .constant(20) )
     }
 }
