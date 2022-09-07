@@ -9,16 +9,11 @@ import SwiftUI
 
 struct GameView: View {
     @Binding var games : [Game]
-    
+    @Binding var game : Game
     
     @State private var equation : Equation = Equation(lower_bound: 0, upper_bound: 2, operation: .addition)
     @State private var answer : String = ""
     @State private var score: Int = 0
-    
-    @Binding var selectedOperator : Operator
-    @Binding var lower_bound: Int
-    @Binding var upper_bound: Int
-    @Binding var time_limit : Int
     
       enum FocusField: Hashable {
         case field
@@ -28,13 +23,13 @@ struct GameView: View {
     var body: some View {
         VStack {
             
-            TimerView(games: $games, time_limit: $time_limit, score: $score, operation: $selectedOperator, lower_bound: $lower_bound, upper_bound: $upper_bound)
+            TimerView(games: $games, game: $game)
             
             ZStack {
                 RoundedRectangle(cornerRadius: 4)
                     .fill(Color.yellow)
                 HStack(alignment: .center){
-                    Text("\(equation.term1) \(selectedOperator.symbol) \(equation.term2)  = ")
+                    Text("\(equation.term1) \(game.operation.symbol) \(equation.term2)  = ")
                         
                     TextField("Answer", text: $answer, onCommit: {
                         if Int(answer) == (equation.evaluate()){
@@ -52,15 +47,14 @@ struct GameView: View {
                 Label("Score: \(score)", systemImage: "minus.forwardslash.plus")
             }.padding()
         }.onAppear() {
-            equation = Equation(lower_bound: lower_bound, upper_bound: upper_bound, operation: selectedOperator)
+            equation = Equation(lower_bound: game.lower_bound, upper_bound: game.upper_bound, operation: game.operation)
         }
     }
 }
 
-struct ContentView_Previews: PreviewProvider {
-    
-    
+struct GameView_Previews: PreviewProvider {
     static var previews: some View {
-        GameView(games: .constant([Game(lower_bound: 0, upper_bound: 100, time_limit: 20, operation: .addition, score: 0)]),selectedOperator: .constant(Operator.addition), lower_bound: .constant(0), upper_bound: .constant(100), time_limit: .constant(20) )
+        let game = Game(data: Game.Data())
+        GameView(games: .constant([game]), game: .constant(game))
     }
 }

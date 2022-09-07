@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Game : Identifiable, Codable {
+struct Game : Identifiable, Codable{
     let id: UUID
     var lower_bound : Int
     var upper_bound : Int
@@ -34,6 +34,7 @@ extension Game{
         var time_limit : Int = 20
         var operation : Operator = .addition
         var score : Int = 0
+        //var date : Date = Date.now
     }
     
     init(data: Data){

@@ -9,15 +9,11 @@ import SwiftUI
 
 struct TimerView: View {
     @Binding var games : [Game]
+    @Binding var game : Game
     
-    @Binding var time_limit : Int
-    @Binding var score : Int
     
     // to be passed to results view
-    @State private var game : Game = Game(lower_bound: 0, upper_bound: 100, time_limit: 20, operation: .addition, score: 0)
-    @Binding var operation: Operator
-    @Binding var lower_bound : Int
-    @Binding var upper_bound : Int
+    //@State private var game : Game = Game(lower_bound: 0, upper_bound: 100, time_limit: 20, operation: .addition, score: 0)
     
     @State var timeRemaining : Int = 20
     @State var textColor : Color = .yellow
@@ -30,7 +26,6 @@ struct TimerView: View {
     
     var body: some View {
         ZStack {
-            NavigationLink(destination: ResultsView(games: $games, game: $game), isActive: $navigate) { EmptyView() }
             
             Circle()
                 .strokeBorder(lineWidth: 24)
@@ -43,9 +38,9 @@ struct TimerView: View {
                 .onReceive(timer) { _ in
                     if timeRemaining > 0 {
                         timeRemaining -= 1
-                        myArc.fin = (359*(Double(timeRemaining)/Double(time_limit)))
+                        myArc.fin = (359*(Double(timeRemaining)/Double(game.time_limit)))
                     } else {
-                        game = Game(lower_bound: lower_bound, upper_bound: upper_bound, time_limit: time_limit, operation: operation, score: score)
+                        //game = Game(lower_bound: lower_bound, upper_bound: upper_bound, time_limit: time_limit, operation: operation, score: score)
                         //games.append(game)
                         navigate = true
                     }
@@ -56,7 +51,7 @@ struct TimerView: View {
                 }
         }
         .onAppear(){
-            timeRemaining = time_limit
+            timeRemaining = game.time_limit
             myArc = MyArc()
         }
     }
@@ -64,7 +59,8 @@ struct TimerView: View {
 
 struct TimerView_Previews: PreviewProvider {
     static var previews: some View {
-        TimerView(games: .constant([Game(lower_bound: 0, upper_bound: 100, time_limit: 20, operation: .addition, score: 0)]), time_limit: .constant(5), score: .constant(0), operation: .constant(.addition), lower_bound: .constant(0), upper_bound: .constant(100))
+        let game : Game = Game(data: Game.Data())
+        TimerView(games: .constant([game]), game: .constant(game))
     }
 }
 

@@ -12,19 +12,21 @@ import SwiftUI
 
 struct WelcomeView: View {
     @Binding var games : [Game]
-    @State var data = Game.Data()
+    //@State var data = Game.Data()
+    
+    @State var game = Game(data: Game.Data())
     
     @State private var highScore: Int = 0
     
     //@FocusState private var lowerBoundFieldIsFocused : Bool
-    @State private var lower_bound : Int = 0
+    //@State private var lower_bound : Int = 0
     @State private var s_lower_bound : Int = 0
-    @State private var upper_bound : Int = 100
+    //@State private var upper_bound : Int = 100
     @State private var s_upper_bound : Int = 100
     
-    @State private var selectedOperator : Operator = .addition
+    //@State private var selectedOperator : Operator = .addition
     
-    @State private var selectedTime: Int = 20
+    //@State private var selectedTime: Int = 20
     
     @State private var lower_bounds : [Int] = [0, 10, 50, 100, 500, 1000]
     @State private var upper_bounds : [Int] = [10, 50, 100, 500, 1000, 100000]
@@ -39,8 +41,8 @@ struct WelcomeView: View {
     
     func testFunc() {
         //test
-        let newGame = Game(data: data)
-        games.append(newGame)
+        //let newGame = Game(data: data)
+        //games.append(newGame)
     }
     
     var body: some View {
@@ -68,7 +70,7 @@ struct WelcomeView: View {
                     .fill(Color.yellow)
                 HStack {
                     Text("High Score: \(highScore)").font(.headline)
-                    Text("(\(selectedOperator.rawValue), values between \(lower_bound) and \(upper_bound), \(selectedTime) second games)").font(.caption2)
+                    Text("(\(game.operation.rawValue), values between \(game.lower_bound) and \(game.upper_bound), \(game.time_limit) second games)").font(.caption2)
                 }
             }.fixedSize(horizontal: false, vertical: true).padding()
             
@@ -82,13 +84,13 @@ struct WelcomeView: View {
                         }
                     }.onChange(of: s_lower_bound) { s_lower_bound in
                         print("Lower bound is \(s_lower_bound)")
-                        if s_lower_bound >= upper_bound {
-                            self.s_lower_bound = lower_bound
+                        if s_lower_bound >= game.upper_bound {
+                            self.s_lower_bound = game.lower_bound
                             improperInput = ImproperInputWrapper(title: "Lower bound cannot be greater than or equal to upper bound.", guidance: "Set a lower bound less than the upper bound.")
                             showingPopover = true
                             
                         } else {
-                            self.lower_bound = s_lower_bound
+                            game.lower_bound = s_lower_bound
                         }
                     }
                 }
@@ -99,20 +101,20 @@ struct WelcomeView: View {
                             value in Text("\(value)").tag(value)
                         }
                     }.onChange(of: s_upper_bound) { s_upper_bound in
-                        if lower_bound >= s_upper_bound {
-                            self.s_upper_bound = upper_bound
+                        if game.lower_bound >= s_upper_bound {
+                            self.s_upper_bound = game.upper_bound
                             improperInput = ImproperInputWrapper(title: "Upper bound cannot be less than or equal to lower bound.", guidance: "Set an upper bound greater than the lower bound.")
                             showingPopover = true
                             
                         } else {
-                            self.upper_bound = s_upper_bound
+                            game.upper_bound = s_upper_bound
                         }
                     }
                 }
                 
                 HStack {
                     Label("Time in seconds", systemImage: "clock")
-                    Picker("select time", selection: $selectedTime) {
+                    Picker("select time", selection: $game.time_limit) {
                         ForEach(time_limits, id: \.self) {
                             value in Text("\(value)").tag(value) }
                     }
@@ -120,7 +122,7 @@ struct WelcomeView: View {
                 
                 HStack {
                     Label("Operation", systemImage: "x.squareroot")
-                    Picker("Operator", selection: $selectedOperator) {
+                    Picker("Operator", selection: $game.operation) {
                         ForEach(Operator.allCases, id: \.self) {
                             value in Text("\(value.rawValue)")
                         }.padding()
@@ -131,7 +133,7 @@ struct WelcomeView: View {
             ZStack {
                 RoundedRectangle(cornerRadius: 4)
                     .fill(Color.green)
-                NavigationLink(destination: GameView(games: $games, selectedOperator: $selectedOperator, lower_bound: $lower_bound, upper_bound: $upper_bound, time_limit: $selectedTime)){
+                NavigationLink(destination: GameView(games: $games, game: $game)){
                     Text("Play!").foregroundColor(.black).font(.headline)
                 }
                 
