@@ -54,6 +54,8 @@ struct WelcomeView: View {
             ZStack {
                 RoundedRectangle(cornerRadius: 4)
                     .fill(Color.yellow)
+                
+                //HighScoresView(games: $games, game: $game)
                 HStack {
                     NavigationLink(destination: HighScoresView(games: $games, game: $game)){
                         Text("High Score: \(highScore)").font(.headline)
