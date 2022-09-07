@@ -14,8 +14,9 @@ struct WelcomeView: View {
     @Binding var games : [Game]
     //@State var data = Game.Data()
     
-    @State var game = Game(data: Game.Data())
+    @State var game : Game = Game(data: Game.Data())
     
+    @State var isPresentingGame : Bool = false
     @State private var highScore: Int = 0
     
     //@FocusState private var lowerBoundFieldIsFocused : Bool
@@ -133,7 +134,7 @@ struct WelcomeView: View {
             ZStack {
                 RoundedRectangle(cornerRadius: 4)
                     .fill(Color.green)
-                NavigationLink(destination: GameView(games: $games, game: $game)){
+                NavigationLink(destination: GameView(game: $game, isPresentingGame: $isPresentingGame), isActive: $isPresentingGame){
                     Text("Play!").foregroundColor(.black).font(.headline)
                 }
                 

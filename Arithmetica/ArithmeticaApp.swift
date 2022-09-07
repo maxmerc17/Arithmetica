@@ -10,6 +10,7 @@ import SwiftUI
 @main
 struct ArithmeticaApp: App {
     @StateObject private var store = GameStore()
+    let game = Game(data: Game.Data())
     
     var body: some Scene {
         WindowGroup {
