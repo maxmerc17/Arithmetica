@@ -25,6 +25,7 @@
 		856AA75728C668580039CE2B /* GameStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 856AA75628C668580039CE2B /* GameStore.swift */; };
 		85C7562328C90371002C9E8B /* EquationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85C7562228C90371002C9E8B /* EquationView.swift */; };
 		85C7562528C90F4A002C9E8B /* popupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85C7562428C90F4A002C9E8B /* popupView.swift */; };
+		85C7562728C93162002C9E8B /* HighScoresView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85C7562628C93162002C9E8B /* HighScoresView.swift */; };
 		85E1DB9928C297230078E02F /* TimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E1DB9828C297230078E02F /* TimerView.swift */; };
 		85E1DB9B28C2AC310078E02F /* ResultsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E1DB9A28C2AC310078E02F /* ResultsView.swift */; };
 		85E1DB9D28C2AEBD0078E02F /* ToDo in Resources */ = {isa = PBXBuildFile; fileRef = 85E1DB9C28C2AEBD0078E02F /* ToDo */; };
@@ -70,6 +71,7 @@
 		856AA75628C668580039CE2B /* GameStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameStore.swift; sourceTree = "<group>"; };
 		85C7562228C90371002C9E8B /* EquationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EquationView.swift; sourceTree = "<group>"; };
 		85C7562428C90F4A002C9E8B /* popupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = popupView.swift; sourceTree = "<group>"; };
+		85C7562628C93162002C9E8B /* HighScoresView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HighScoresView.swift; sourceTree = "<group>"; };
 		85E1DB9828C297230078E02F /* TimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerView.swift; sourceTree = "<group>"; };
 		85E1DB9A28C2AC310078E02F /* ResultsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsView.swift; sourceTree = "<group>"; };
 		85E1DB9C28C2AEBD0078E02F /* ToDo */ = {isa = PBXFileReference; lastKnownFileType = text; path = ToDo; sourceTree = "<group>"; };
@@ -139,6 +141,7 @@
 				8534D02028C655D000283756 /* ImproperInputView.swift */,
 				85C7562228C90371002C9E8B /* EquationView.swift */,
 				85C7562428C90F4A002C9E8B /* popupView.swift */,
+				85C7562628C93162002C9E8B /* HighScoresView.swift */,
 			);
 			path = Arithmetica;
 			sourceTree = "<group>";
@@ -314,6 +317,7 @@
 				8534D02328C6566300283756 /* ImproperInputWrapper.swift in Sources */,
 				85C7562328C90371002C9E8B /* EquationView.swift in Sources */,
 				85E1DB9928C297230078E02F /* TimerView.swift in Sources */,
+				85C7562728C93162002C9E8B /* HighScoresView.swift in Sources */,
 				856AA75728C668580039CE2B /* GameStore.swift in Sources */,
 				850F57DF28C2426500289469 /* WelcomeView.swift in Sources */,
 				850F57E328C2764A00289469 /* AboutView.swift in Sources */,

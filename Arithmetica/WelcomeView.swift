@@ -55,7 +55,9 @@ struct WelcomeView: View {
                 RoundedRectangle(cornerRadius: 4)
                     .fill(Color.yellow)
                 HStack {
-                    Text("High Score: \(highScore)").font(.headline)
+                    NavigationLink(destination: HighScoresView()){
+                        Text("High Score: \(highScore)").font(.headline)
+                    }
                     Text("(\(game.operation.rawValue), values between \(game.lower_bound) and \(game.upper_bound), \(game.time_limit) second games)").font(.caption2)
                 }
             }.fixedSize(horizontal: false, vertical: true).padding()
@@ -140,18 +142,12 @@ struct WelcomeView: View {
             NavigationLink(destination: AboutView()){
                 Text("About").foregroundColor(.blue)
             }
-            Button("Show results") {
-                isPresentingResults = true
-            }
             .popover(item: $improperInput) { wrapper in
                 ImproperInputView(inputWrapper: wrapper)
             }
             .popup(isPresented: $isPresentingResults) {
                 ResultsView(games: $games, game: $game, isPresentingResults: $isPresentingResults, saveAction: saveAction)
             }
-            /*.onChange(of: games) { games in
-                saveAction()
-            }*/
         }
     }
 }
