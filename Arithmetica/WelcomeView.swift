@@ -12,39 +12,24 @@ import SwiftUI
 
 struct WelcomeView: View {
     @Binding var games : [Game]
-    //@State var data = Game.Data()
     
     @State var game : Game = Game(data: Game.Data())
-    
     @State var isPresentingGame : Bool = false
+    @State private var showingPopover = false
+    
     @State private var highScore: Int = 0
-    
-    //@FocusState private var lowerBoundFieldIsFocused : Bool
-    //@State private var lower_bound : Int = 0
     @State private var s_lower_bound : Int = 0
-    //@State private var upper_bound : Int = 100
     @State private var s_upper_bound : Int = 100
-    
-    //@State private var selectedOperator : Operator = .addition
-    
-    //@State private var selectedTime: Int = 20
-    
     @State private var lower_bounds : [Int] = [0, 10, 50, 100, 500, 1000]
     @State private var upper_bounds : [Int] = [10, 50, 100, 500, 1000, 100000]
     @State private var time_limits : [Int] = [5, 20, 40, 60, 120, 300, 600]
     
-    @State private var showingPopover = false
+    //@FocusState private var lowerBoundFieldIsFocused : Bool
     @Environment(\.dismiss) private var dismiss
     @State private var improperInput : ImproperInputWrapper?
     
     @Environment(\.scenePhase) private var scenePhase
     let saveAction : () -> Void
-    
-    func testFunc() {
-        //test
-        //let newGame = Game(data: data)
-        //games.append(newGame)
-    }
     
     var body: some View {
         
@@ -64,7 +49,6 @@ struct WelcomeView: View {
                 Text("c").font(.largeTitle).bold().foregroundColor(.blue) +
                 Text("a").font(.largeTitle).bold().foregroundColor(.green)
             }
-            
             
             ZStack {
                 RoundedRectangle(cornerRadius: 4)
@@ -154,10 +138,6 @@ struct WelcomeView: View {
             
             NavigationLink(destination: AboutView()){
                 Text("About").foregroundColor(.blue)
-            }
-            
-            Button(action: testFunc){
-                Text("Test")
             }
             
             .popover(item: $improperInput) { wrapper in

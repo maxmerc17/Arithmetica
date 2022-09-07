@@ -9,16 +9,13 @@ import SwiftUI
 
 struct TimerView: View {
     @Binding var game : Game
-    let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
-    
     @Binding var isPresentingGame : Bool
     
+    @State var myArc : MyArc = MyArc()
     @State var timeRemaining : Int = 20
     @State var textColor : Color = .yellow
     
-    @State var myArc : MyArc = MyArc()
-    
-    
+    let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     
     var body: some View {
         ZStack {
@@ -40,7 +37,6 @@ struct TimerView: View {
                     if timeRemaining < 11 {
                         textColor = .red
                     }
-                    
                 }
         }
         .onAppear(){
