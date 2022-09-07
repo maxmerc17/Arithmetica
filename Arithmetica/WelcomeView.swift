@@ -55,7 +55,7 @@ struct WelcomeView: View {
                 RoundedRectangle(cornerRadius: 4)
                     .fill(Color.yellow)
                 HStack {
-                    NavigationLink(destination: HighScoresView()){
+                    NavigationLink(destination: HighScoresView(games: $games, game: $game)){
                         Text("High Score: \(highScore)").font(.headline)
                     }
                     Text("(\(game.operation.rawValue), values between \(game.lower_bound) and \(game.upper_bound), \(game.time_limit) second games)").font(.caption2)

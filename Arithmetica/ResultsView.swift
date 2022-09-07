@@ -17,7 +17,7 @@ struct ResultsView: View {
     
     func onOkay() {
         games.append(game)
-        game.score = 0
+        game = Game(lower_bound: game.lower_bound, upper_bound: game.upper_bound, time_limit: game.time_limit, operation: game.operation, score: 0)
         saveAction()
         dismiss()
     }

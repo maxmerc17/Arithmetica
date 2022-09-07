@@ -8,14 +8,27 @@
 import SwiftUI
 
 struct HighScoresView: View {
+    @Binding var games : [Game]
+    @Binding var game : Game
+    
     var body: some View {
-        Text("THIS IS the high scores view")
-            .padding()
+        VStack{
+            Text("THIS IS the high scores view")
+                .padding()
+            
+            ForEach($games) {
+                $game in Text("\(game.score)")
+            }
+        }.onAppear(){
+            games = games.sorted(by: { $0.score > $1.score })
+        }
+        
     }
 }
 
 struct HighScoresView_Previews: PreviewProvider {
     static var previews: some View {
-        HighScoresView()
+        let game : Game = Game(data: Game.Data())
+        HighScoresView(games: .constant([game]), game: .constant(game))
     }
 }
