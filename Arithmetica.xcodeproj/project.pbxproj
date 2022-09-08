@@ -11,7 +11,7 @@
 		850F57B228C1261700289469 /* GameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 850F57B128C1261700289469 /* GameView.swift */; };
 		850F57B428C1261800289469 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 850F57B328C1261800289469 /* Assets.xcassets */; };
 		850F57B728C1261800289469 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 850F57B628C1261800289469 /* Preview Assets.xcassets */; };
-		850F57C128C1261800289469 /* ArithmeticaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 850F57C028C1261800289469 /* ArithmeticaTests.swift */; };
+		850F57C128C1261800289469 /* EquationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 850F57C028C1261800289469 /* EquationTests.swift */; };
 		850F57CB28C1261800289469 /* ArithmeticaUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 850F57CA28C1261800289469 /* ArithmeticaUITests.swift */; };
 		850F57CD28C1261800289469 /* ArithmeticaUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 850F57CC28C1261800289469 /* ArithmeticaUITestsLaunchTests.swift */; };
 		850F57DB28C1294900289469 /* Equation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 850F57DA28C1294900289469 /* Equation.swift */; };
@@ -26,6 +26,7 @@
 		85C7562328C90371002C9E8B /* EquationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85C7562228C90371002C9E8B /* EquationView.swift */; };
 		85C7562528C90F4A002C9E8B /* popupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85C7562428C90F4A002C9E8B /* popupView.swift */; };
 		85C7562728C93162002C9E8B /* HighScoresView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85C7562628C93162002C9E8B /* HighScoresView.swift */; };
+		85C7562F28CA3CA7002C9E8B /* DemoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85C7562E28CA3CA7002C9E8B /* DemoTests.swift */; };
 		85E1DB9928C297230078E02F /* TimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E1DB9828C297230078E02F /* TimerView.swift */; };
 		85E1DB9B28C2AC310078E02F /* ResultsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E1DB9A28C2AC310078E02F /* ResultsView.swift */; };
 		85E1DB9D28C2AEBD0078E02F /* ToDo in Resources */ = {isa = PBXBuildFile; fileRef = 85E1DB9C28C2AEBD0078E02F /* ToDo */; };
@@ -47,6 +48,13 @@
 			remoteGlobalIDString = 850F57AB28C1261700289469;
 			remoteInfo = Arithmetica;
 		};
+		85C7563028CA3CA7002C9E8B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 850F57A428C1261700289469 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 850F57AB28C1261700289469;
+			remoteInfo = Arithmetica;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
@@ -56,7 +64,7 @@
 		850F57B328C1261800289469 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		850F57B628C1261800289469 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		850F57BC28C1261800289469 /* ArithmeticaTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ArithmeticaTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		850F57C028C1261800289469 /* ArithmeticaTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArithmeticaTests.swift; sourceTree = "<group>"; };
+		850F57C028C1261800289469 /* EquationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EquationTests.swift; sourceTree = "<group>"; };
 		850F57C628C1261800289469 /* ArithmeticaUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ArithmeticaUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		850F57CA28C1261800289469 /* ArithmeticaUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArithmeticaUITests.swift; sourceTree = "<group>"; };
 		850F57CC28C1261800289469 /* ArithmeticaUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArithmeticaUITestsLaunchTests.swift; sourceTree = "<group>"; };
@@ -72,6 +80,8 @@
 		85C7562228C90371002C9E8B /* EquationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EquationView.swift; sourceTree = "<group>"; };
 		85C7562428C90F4A002C9E8B /* popupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = popupView.swift; sourceTree = "<group>"; };
 		85C7562628C93162002C9E8B /* HighScoresView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HighScoresView.swift; sourceTree = "<group>"; };
+		85C7562C28CA3CA7002C9E8B /* EquationTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EquationTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		85C7562E28CA3CA7002C9E8B /* DemoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoTests.swift; sourceTree = "<group>"; };
 		85E1DB9828C297230078E02F /* TimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerView.swift; sourceTree = "<group>"; };
 		85E1DB9A28C2AC310078E02F /* ResultsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsView.swift; sourceTree = "<group>"; };
 		85E1DB9C28C2AEBD0078E02F /* ToDo */ = {isa = PBXFileReference; lastKnownFileType = text; path = ToDo; sourceTree = "<group>"; };
@@ -100,6 +110,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		85C7562928CA3CA7002C9E8B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -109,6 +126,7 @@
 				850F57AE28C1261700289469 /* Arithmetica */,
 				850F57BF28C1261800289469 /* ArithmeticaTests */,
 				850F57C928C1261800289469 /* ArithmeticaUITests */,
+				85C7562D28CA3CA7002C9E8B /* EquationTests */,
 				850F57AD28C1261700289469 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -119,6 +137,7 @@
 				850F57AC28C1261700289469 /* Arithmetica.app */,
 				850F57BC28C1261800289469 /* ArithmeticaTests.xctest */,
 				850F57C628C1261800289469 /* ArithmeticaUITests.xctest */,
+				85C7562C28CA3CA7002C9E8B /* EquationTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -157,7 +176,7 @@
 		850F57BF28C1261800289469 /* ArithmeticaTests */ = {
 			isa = PBXGroup;
 			children = (
-				850F57C028C1261800289469 /* ArithmeticaTests.swift */,
+				850F57C028C1261800289469 /* EquationTests.swift */,
 			);
 			path = ArithmeticaTests;
 			sourceTree = "<group>";
@@ -181,6 +200,14 @@
 				856AA75628C668580039CE2B /* GameStore.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		85C7562D28CA3CA7002C9E8B /* EquationTests */ = {
+			isa = PBXGroup;
+			children = (
+				85C7562E28CA3CA7002C9E8B /* DemoTests.swift */,
+			);
+			path = EquationTests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -239,6 +266,24 @@
 			productReference = 850F57C628C1261800289469 /* ArithmeticaUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
+		85C7562B28CA3CA7002C9E8B /* EquationTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 85C7563428CA3CA7002C9E8B /* Build configuration list for PBXNativeTarget "EquationTests" */;
+			buildPhases = (
+				85C7562828CA3CA7002C9E8B /* Sources */,
+				85C7562928CA3CA7002C9E8B /* Frameworks */,
+				85C7562A28CA3CA7002C9E8B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				85C7563128CA3CA7002C9E8B /* PBXTargetDependency */,
+			);
+			name = EquationTests;
+			productName = EquationTests;
+			productReference = 85C7562C28CA3CA7002C9E8B /* EquationTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -260,6 +305,10 @@
 						CreatedOnToolsVersion = 13.4.1;
 						TestTargetID = 850F57AB28C1261700289469;
 					};
+					85C7562B28CA3CA7002C9E8B = {
+						CreatedOnToolsVersion = 13.4.1;
+						TestTargetID = 850F57AB28C1261700289469;
+					};
 				};
 			};
 			buildConfigurationList = 850F57A728C1261700289469 /* Build configuration list for PBXProject "Arithmetica" */;
@@ -278,6 +327,7 @@
 				850F57AB28C1261700289469 /* Arithmetica */,
 				850F57BB28C1261800289469 /* ArithmeticaTests */,
 				850F57C528C1261800289469 /* ArithmeticaUITests */,
+				85C7562B28CA3CA7002C9E8B /* EquationTests */,
 			);
 		};
 /* End PBXProject section */
@@ -301,6 +351,13 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		850F57C428C1261800289469 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		85C7562A28CA3CA7002C9E8B /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -338,7 +395,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				850F57C128C1261800289469 /* ArithmeticaTests.swift in Sources */,
+				850F57C128C1261800289469 /* EquationTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -348,6 +405,14 @@
 			files = (
 				850F57CD28C1261800289469 /* ArithmeticaUITestsLaunchTests.swift in Sources */,
 				850F57CB28C1261800289469 /* ArithmeticaUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		85C7562828CA3CA7002C9E8B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				85C7562F28CA3CA7002C9E8B /* DemoTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -363,6 +428,11 @@
 			isa = PBXTargetDependency;
 			target = 850F57AB28C1261700289469 /* Arithmetica */;
 			targetProxy = 850F57C728C1261800289469 /* PBXContainerItemProxy */;
+		};
+		85C7563128CA3CA7002C9E8B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 850F57AB28C1261700289469 /* Arithmetica */;
+			targetProxy = 85C7563028CA3CA7002C9E8B /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -615,6 +685,42 @@
 			};
 			name = Release;
 		};
+		85C7563228CA3CA7002C9E8B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = SAKN7A8HJH;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = maxyboy.EquationTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Arithmetica.app/Arithmetica";
+			};
+			name = Debug;
+		};
+		85C7563328CA3CA7002C9E8B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = SAKN7A8HJH;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = maxyboy.EquationTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Arithmetica.app/Arithmetica";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -650,6 +756,15 @@
 			buildConfigurations = (
 				850F57D728C1261800289469 /* Debug */,
 				850F57D828C1261800289469 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		85C7563428CA3CA7002C9E8B /* Build configuration list for PBXNativeTarget "EquationTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				85C7563228CA3CA7002C9E8B /* Debug */,
+				85C7563328CA3CA7002C9E8B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

@@ -25,7 +25,7 @@ struct EquationView: View {
                 TextField("Answer", text: $answer, onCommit: {
                     if Int(answer) == (equation.evaluate()){
                         let (a,b) = equation.generateNewTerms()
-                        print("\(a) \(b)")
+                        print("\(a) \(b)") // TODO: this or in generate new terms could be a good place to save the list of equations
                         answer = ""
                         game.score+=1
                     }
