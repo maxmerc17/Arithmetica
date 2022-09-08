@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum Operator : String, Equatable, CaseIterable {
+enum Operator : String, Equatable, CaseIterable, Codable {
     case addition
     case subtraction
     case multiplication
