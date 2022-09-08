@@ -23,20 +23,26 @@ struct Equation {
         }
         
         self.upper_bound = upper_bound
-        self.term1 = Int.random(in: lower_bound..<upper_bound)
-        self.term2 = Int.random(in: lower_bound..<upper_bound)
         self.operation = operation
+        
+        self.term1 = 1
+        self.term2 = 2
+        let (term1, term2) : (Int, Int) = generateNewTerms()
+        self.term1 = term1
+        self.term2 = term2
+        
     }
     
-    mutating func generateNewTerms() -> Void {
+    mutating func generateNewTerms() -> (Int, Int) {
         switch operation {
             case .addition, .multiplication:
                 term1 = Int.random(in: self.lower_bound..<upper_bound)
                 term2 = Int.random(in: self.lower_bound..<upper_bound)
             case .subtraction, .division:
-                term1 = Int.random(in: self.lower_bound+1..<upper_bound)
-                term2 = Int.random(in: self.lower_bound..<term1)
+                term1 = Int.random(in: self.lower_bound..<upper_bound)
+                term2 = Int.random(in: self.lower_bound...term1)
         }
+        return (term1, term2)
     }
     
     func evaluate() -> Int{
@@ -44,11 +50,11 @@ struct Equation {
             case .addition:
                 return term1 + term2
             case .subtraction:
-                return abs(term1 - term2)
+                return term1 - term2
             case .multiplication:
                 return term1 * term2
             case .division:
-                return Int(term1 / term2)
+                return term1/term2 //Double(Int((term1 / term2)*10)/10)
         }
     }
 }

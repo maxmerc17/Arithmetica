@@ -10,7 +10,7 @@ import SwiftUI
 struct EquationView: View {
     @Binding var game : Game
     
-    @State private var equation : Equation = Equation(lower_bound: 0, upper_bound: 2, operation: .addition)
+    @State var equation : Equation
     @State private var answer : String = ""
     
     @FocusState private var fieldInFocus: Bool
@@ -24,7 +24,8 @@ struct EquationView: View {
                     
                 TextField("Answer", text: $answer, onCommit: {
                     if Int(answer) == (equation.evaluate()){
-                        equation.generateNewTerms()
+                        let (a,b) = equation.generateNewTerms()
+                        print("\(a) \(b)")
                         answer = ""
                         game.score+=1
                     }
@@ -40,15 +41,12 @@ struct EquationView: View {
 
             }
         }.fixedSize(horizontal: false, vertical: true).padding()
-        .onAppear() {
-            equation = Equation(lower_bound: game.lower_bound, upper_bound: game.upper_bound, operation: game.operation)
-        }
     }
 }
 
 struct EquationView_Previews: PreviewProvider {
     static var previews: some View {
         let game : Game = Game(data: Game.Data())
-        EquationView(game: .constant(game))
+        EquationView(game: .constant(game), equation: Equation(lower_bound: game.lower_bound, upper_bound: game.upper_bound, operation: game.operation))
     }
 }

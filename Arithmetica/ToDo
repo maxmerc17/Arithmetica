@@ -1,11 +1,7 @@
 
 - make sure first term is greater than second for subtract and divide
-- make a data store to save high scores
 - try to export the whole thing to your phone to play with
 - make icon (?)
-- make sure user can't set a lower bound greater than the upper bound and vice versa
 - make sure text box can only recieve number
-- make sure text box is in focus
-- change layout of gameview
 - test cases and use on your phone
-- have a high score screen
+- display high scores in a chart
