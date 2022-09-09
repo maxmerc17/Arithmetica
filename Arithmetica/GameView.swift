@@ -26,11 +26,12 @@ struct GameView: View {
             }
             
             TimerView(game: $game, isPresentingGame: $isPresentingGame, isPresentingResults: $isPresentingResults)
-            EquationView(game: $game, equation: Equation(lower_bound: game.lower_bound, upper_bound: game.upper_bound, operation: game.operation))
             
             ZStack {
                 Label("Score: \(game.score)", systemImage: "minus.forwardslash.plus")
             }.padding()
+            
+            EquationView(game: $game, equation: Equation(lower_bound: game.lower_bound, upper_bound: game.upper_bound, operation: game.operation))
         }
     }
 }

@@ -23,7 +23,7 @@ struct HighScoreView: View {
     
     var body: some View {
         VStack{
-            Text("\(Score)")
+            Text("\(Score)").foregroundColor(.black)
         }
     }
 }

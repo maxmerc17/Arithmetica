@@ -61,7 +61,7 @@ struct WelcomeView: View {
                         Text("High Score:").font(.headline)
                     }
                     HighScoreView(games: $games, game: $game)
-                    Text("(\(game.operation.rawValue), values between \(game.lower_bound) and \(game.upper_bound), \(game.time_limit) second games)").font(.caption2)
+                    Text("(\(game.operation.rawValue), values between \(game.lower_bound) and \(game.upper_bound), \(game.time_limit) second games)").font(.caption2).foregroundColor(.black)
                 }
             }.fixedSize(horizontal: false, vertical: true).padding()
             
