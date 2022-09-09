@@ -18,7 +18,7 @@ struct GameView: View {
     }
     
     var body: some View {
-        VStack {
+        ScrollView {
             VStack(alignment: .leading) {
                 Button(action: onClick ) {
                     Text("Quit").padding().background(.red).foregroundColor(.white)
@@ -30,6 +30,10 @@ struct GameView: View {
             ZStack {
                 Label("Score: \(game.score)", systemImage: "minus.forwardslash.plus")
             }.padding()
+            
+            if (game.operation == .division){
+                Text("Round answers down to the nearest whole number for division.").padding()
+            }
             
             EquationView(game: $game, equation: Equation(lower_bound: game.lower_bound, upper_bound: game.upper_bound, operation: game.operation))
         }

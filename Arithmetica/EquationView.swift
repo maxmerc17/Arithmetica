@@ -15,6 +15,7 @@ struct EquationView: View {
     
     @FocusState var fieldInFocus: Bool
     
+    
     var body: some View {
         ZStack {
             RoundedRectangle(cornerRadius: 4)
