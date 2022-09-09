@@ -58,9 +58,9 @@ struct WelcomeView: View {
                 //HighScoresView(games: $games, game: $game)
                 HStack {
                     NavigationLink(destination: HighScoresView(games: $games, game: $game)){
-                        Text("High Score: \(highScore)").font(.headline)
-                        
+                        Text("High Score:").font(.headline)
                     }
+                    HighScoreView(games: $games, game: $game)
                     Text("(\(game.operation.rawValue), values between \(game.lower_bound) and \(game.upper_bound), \(game.time_limit) second games)").font(.caption2)
                 }
             }.fixedSize(horizontal: false, vertical: true).padding()
