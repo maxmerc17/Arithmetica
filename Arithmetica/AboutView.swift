@@ -9,8 +9,10 @@ import SwiftUI
 
 struct AboutView: View {
     var body: some View {
-        Text("Arithmetica is an arithmetic game created by Max Mercer. ")
-            .padding()
+        ScrollView{
+            Text("Arithmetica is an arithmetic game created by Max Mercer. ")
+                .padding()
+        }
     }
 }
 

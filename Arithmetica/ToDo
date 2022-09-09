@@ -1,9 +1,9 @@
-Today:
-- add an amimation to the timer
 
 Another Day:
 - make icon (?)
+- add an amimation to the timer
 - display high scores in a chart
+- allow user to delete scores in high score view
 - calculate average time to solve a problem
 - get some feedback from others
 - add guest mode - scores won't be saved
@@ -16,5 +16,4 @@ Dad feedback:
 - immediately tried to change lower bound to a value that was too great — consider using slider - more intuitive and more fail safe
 - not obvious where to start when game began
 - didn’t realize a new equation popped up - make equation larger - use the space
-
-
+- thought operation icons were where you select operation
