@@ -1,15 +1,19 @@
 
-- make sure first term is greater than second for subtract and divide
-- try to export the whole thing to your phone to play with
+Another Day:
 - make icon (?)
-- make sure text box can only recieve number
-- test cases and use on your phone
+- add an amimation to the timer
 - display high scores in a chart
-
+- allow user to delete scores in high score view
 - calculate average time to solve a problem
--
-
-- see dads feedback in notes
-
 - get some feedback from others
+- add guest mode - scores won't be saved
+- do division precise to 1 decimal point (currently rounded down to the next whole number)
+- time in seconds should be time in minutes when it is appropriate throughout the app
 
+Dad feedback:
+- clicked on name instead of number for dropdown — dropdown not obvious
+- sqrt  icon misleading
+- immediately tried to change lower bound to a value that was too great — consider using slider - more intuitive and more fail safe
+- not obvious where to start when game began
+- didn’t realize a new equation popped up - make equation larger - use the space
+- thought operation icons were where you select operation

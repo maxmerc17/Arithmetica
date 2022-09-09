@@ -11,9 +11,10 @@ struct EquationView: View {
     @Binding var game : Game
     
     @State var equation : Equation
-    @State private var answer : String = ""
+    @State var answer : String = ""
     
-    @FocusState private var fieldInFocus: Bool
+    @FocusState var fieldInFocus: Bool
+    
     
     var body: some View {
         ZStack {
@@ -22,24 +23,21 @@ struct EquationView: View {
             HStack(alignment: .center){
                 Text("\(equation.term1) \(game.operation.symbol) \(equation.term2)  = ")
                     
-                TextField("Answer", text: $answer, onCommit: {
-                    if Int(answer) == (equation.evaluate()){
-                        let (a,b) = equation.generateNewTerms()
-                        print("\(a) \(b)")
-                        answer = ""
-                        game.score+=1
+                TextField("Answer", text: $answer)
+                    .onChange(of: answer) {
+                        if Int($0) == (equation.evaluate()){
+                            let (a,b) = equation.generateNewTerms()
+                            print("\(a) \(b)")
+                            answer = ""
+                            game.score+=1
+                        }
                     }
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.75) {
-                      self.fieldInFocus = true
+                    .focused($fieldInFocus)
+                    .keyboardType(.numberPad)
+                    .onAppear {
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 1) { fieldInFocus = true }
                     }
-                }).focused($fieldInFocus)
-                .onAppear {
-                  DispatchQueue.main.asyncAfter(deadline: .now() + 0.75) {
-                    self.fieldInFocus = true
-                  }
-                }
-
-            }
+            }.foregroundColor(.black)
         }.fixedSize(horizontal: false, vertical: true).padding()
     }
 }

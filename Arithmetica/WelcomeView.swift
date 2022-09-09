@@ -58,10 +58,10 @@ struct WelcomeView: View {
                 //HighScoresView(games: $games, game: $game)
                 HStack {
                     NavigationLink(destination: HighScoresView(games: $games, game: $game)){
-                        Text("High Score: \(highScore)").font(.headline)
-                        
+                        Text("High Score:").font(.headline)
                     }
-                    Text("(\(game.operation.rawValue), values between \(game.lower_bound) and \(game.upper_bound), \(game.time_limit) second games)").font(.caption2)
+                    HighScoreView(games: $games, game: $game)
+                    Text("(\(game.operation.rawValue), values between \(game.lower_bound) and \(game.upper_bound), \(game.time_limit) second games)").font(.caption2).foregroundColor(.black)
                 }
             }.fixedSize(horizontal: false, vertical: true).padding()
             
@@ -77,7 +77,7 @@ struct WelcomeView: View {
                         print("Lower bound is \(s_lower_bound)")
                         if s_lower_bound >= game.upper_bound {
                             self.s_lower_bound = game.lower_bound
-                            improperInput = ImproperInputWrapper(title: "Lower bound cannot be greater than or equal to upper bound.", guidance: "Set a lower bound less than the upper bound.")
+                            improperInput = ImproperInputWrapper(title: "Lower bound cannot be greater than or equal to the upper bound.", guidance: "Set a lower bound that is less than the upper bound. Or adjust the upper bound first before you adjust the lower bound.")
                             //showingPopover = true
                             
                         } else {
@@ -94,7 +94,7 @@ struct WelcomeView: View {
                     }.onChange(of: s_upper_bound) { s_upper_bound in
                         if game.lower_bound >= s_upper_bound {
                             self.s_upper_bound = game.upper_bound
-                            improperInput = ImproperInputWrapper(title: "Upper bound cannot be less than or equal to lower bound.", guidance: "Set an upper bound greater than the lower bound.")
+                            improperInput = ImproperInputWrapper(title: "Upper bound cannot be less than or equal to the lower bound.", guidance: "Set an upper bound greater than the lower bound. Or adjust the lower bound first before you adjust the upper bound.")
                             //showingPopover = true
                             
                         } else {

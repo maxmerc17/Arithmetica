@@ -12,7 +12,7 @@ struct HighScoresView: View {
     @Binding var game : Game
     
     var body: some View {
-        VStack{
+        ScrollView{
             Group{
                 Text("These are the high scores for:").font(.headline) +  Text("\n\(game.operation.rawValue), values between \(game.lower_bound) and \(game.upper_bound), \(game.time_limit) second games").font(.caption)
             }.padding()
