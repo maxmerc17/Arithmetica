@@ -24,7 +24,7 @@ struct WelcomeView: View {
     @State private var s_upper_bound : Int = 100
     @State private var lower_bounds : [Int] = [0, 10, 50, 100, 500, 1000]
     @State private var upper_bounds : [Int] = [10, 50, 100, 500, 1000, 100000]
-    @State private var time_limits : [Int] = [5, 20, 40, 60, 120, 300, 600]
+    @State private var time_limits : [Int] = [20, 30, 45, 60, 120, 300, 600]
     
     @Environment(\.dismiss) private var dismiss
     @State private var improperInput : ImproperInputWrapper?
@@ -120,15 +120,15 @@ struct WelcomeView: View {
                     }
                 }
             }
-            
-            ZStack {
-                RoundedRectangle(cornerRadius: 4)
-                    .fill(Color.green)
-                NavigationLink(destination: GameView(game: $game, isPresentingGame: $isPresentingGame, isPresentingResults: $isPresentingResults), isActive: $isPresentingGame){
+            NavigationLink(destination: GameView(game: $game, isPresentingGame: $isPresentingGame, isPresentingResults: $isPresentingResults), isActive: $isPresentingGame){
+                ZStack {
+                    RoundedRectangle(cornerRadius: 4)
+                        .fill(Color.green)
+                    
                     Text("Play!").foregroundColor(.black).font(.headline)
-                }
-                
-            }.fixedSize(horizontal: false, vertical: true).padding()
+                    
+                }.padding().fixedSize(horizontal: false, vertical: true).padding()
+            }
                 
             
             HStack {
@@ -143,7 +143,7 @@ struct WelcomeView: View {
             }.padding()
             
             NavigationLink(destination: AboutView()){
-                Text("About").foregroundColor(.blue)
+                Text("ℹ️ Info ").foregroundColor(.blue)
             }
             .popover(item: $improperInput) { wrapper in
                 ImproperInputView(inputWrapper: wrapper)

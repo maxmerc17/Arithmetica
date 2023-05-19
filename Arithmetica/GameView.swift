@@ -32,7 +32,20 @@ struct GameView: View {
             }.padding()
             
             if (game.operation == .division){
-                Text("Round answers down to the nearest whole number for division.").padding()
+                VStack {
+                    Text("Round quotients down to the nearest whole number.")
+                                    .font(.headline)
+                                    .padding()
+                                
+                                HStack(spacing: 10) {
+                                    Text("GOOD - 1,25,156 ")
+                                        .foregroundColor(.green)
+                                    
+                                    
+                                    Text("BAD - 3.0,5.1,12.34")
+                                        .foregroundColor(.red)
+                                }
+                }
             }
             
             EquationView(game: $game, equation: Equation(lower_bound: game.lower_bound, upper_bound: game.upper_bound, operation: game.operation))

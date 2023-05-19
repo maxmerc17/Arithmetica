@@ -13,9 +13,23 @@ struct HighScoresView: View {
     
     var body: some View {
         ScrollView{
-            Group{
-                Text("These are the high scores for:").font(.headline) +  Text("\n\(game.operation.rawValue), values between \(game.lower_bound) and \(game.upper_bound), \(game.time_limit) second games").font(.caption)
-            }.padding()
+            Group {
+                Text("High Scores")
+                    .font(.largeTitle)
+                    .fontWeight(.bold)
+                    .foregroundColor(.blue)
+                
+                Text("These are the high scores for:")
+                    .font(.headline)
+                    .multilineTextAlignment(.center)
+                    .padding(.vertical)
+                
+                Text("\(game.operation.rawValue), values between \(game.lower_bound) and \(game.upper_bound), \(game.time_limit) second games")
+                    .font(.subheadline)
+                    .multilineTextAlignment(.center)
+                    .padding(.bottom)
+            }
+            .padding()
             
             ForEach($games) {
                 $pastGame in
